@@ -14,8 +14,9 @@ public class Game {
         player.selectChar();
         Location location=null;
 while (true){
+    player.printInfo();
     System.out.println();
-    System.out.println("Bölgeler");
+    System.out.println("######################## Bölgeler ############################");
     System.out.println();
     System.out.println("1 - Güvenli Ev--> Burasi sizin icin güvenli bir ev Düsman yoktur !");
     System.out.println("2 -  Magaza --> Silah veya zirh satinalabilirsiniz ");

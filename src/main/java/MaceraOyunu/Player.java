@@ -7,7 +7,21 @@ public class Player {
     private  int damage;
     private  int health;
     private  int money;
+    private Inventory inventory;
 
+    public Inventory getInventory() {
+        return inventory;
+    }
+    public void printInfo(){
+        System.out.println("silahiniz : "+this.getInventory().getWeapon().getName()+
+                ", Hasariniz : "+this.getDamage()+
+                " ,Saglik : "+this.getHealth()+
+                " ,Para : "+this.getMoney());
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
 
     public int getId() {
         return id;
@@ -24,6 +38,7 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
+        this.inventory=new Inventory();
     }
     public void selectChar(){
         GameChar[] charList={new Samurai(),new Archer(),new Knight()};
@@ -64,7 +79,7 @@ public void initPlayer(GameChar gameChar){
 
 
     public int getDamage() {
-        return damage;
+        return damage+this.getInventory().getWeapon().getDamage();
     }
 
     public void setDamage(int damage) {
