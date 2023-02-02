@@ -13,10 +13,13 @@ public class Player {
         return inventory;
     }
     public void printInfo(){
-        System.out.println("silahiniz : "+this.getInventory().getWeapon().getName()+
-                ", Hasariniz : "+this.getDamage()+
-                " ,Saglik : "+this.getHealth()+
-                " ,Para : "+this.getMoney());
+        System.out.println(
+                        "silahiniz : "+this.getInventory().getWeapon().getName()+
+                                ", Zirh : "+this.getInventory().getArmor().getName()+
+                                ", Bloklama : "+this.getInventory().getArmor().getBlock()+
+                                ", Hasariniz : "+this.getDamage()+
+                                 " ,Saglik : "+this.getHealth()+
+                             " ,Para : "+this.getMoney());
     }
 
     public void setInventory(Inventory inventory) {

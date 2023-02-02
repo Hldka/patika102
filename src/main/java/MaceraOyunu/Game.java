@@ -20,15 +20,19 @@ while (true){
     System.out.println();
     System.out.println("1 - Güvenli Ev--> Burasi sizin icin güvenli bir ev Düsman yoktur !");
     System.out.println("2 -  Magaza --> Silah veya zirh satinalabilirsiniz ");
-    System.out.println("Lütfen gitmek istediuginiz bölgeyi seciniz : ");
+    System.out.println("0 -Cikis Yap --> Oyunu sonlandir  ");
     int selectLoc=input.nextInt();
     switch (selectLoc){
+        case 0:location=null;
+            break;
         case 1:location=new SafeHouse(player);
             break;
         case  2:location=new ToolStore(player);
             break;
         default:location=new SafeHouse(player);
-    }
+    }if (location==null){
+        System.out.println(" Bu sisli ve karanlik adaadn hemen vazgectin ");
+        break;}
     if (!location.onLocation()){
         System.out.println("GAME OVER");
         break;

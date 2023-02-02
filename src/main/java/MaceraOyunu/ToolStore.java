@@ -8,6 +8,8 @@ public class ToolStore extends NormalLoc{
     @Override
     boolean onLocation() {
         System.out.println("---------Magaza'ya Hosgeldiniz----------- ");
+        boolean showmenu=true;
+        while (showmenu){
         System.out.println("1- Silahlar");
         System.out.println("2- Zirhlar");
         System.out.println("3- Cikis yap");
@@ -21,24 +23,46 @@ public class ToolStore extends NormalLoc{
                    buyweapon();
             break;
             case 2:printArmor();
+            buyArmor();
             break;
             case 3:
                 System.out.println("Bir daha bekleriz...");
+                showmenu=false;
+                break;
 
         }
-        return true;
+
+    } return true;
     }
 
-    public void printArmor() {
-        System.out.println("Silahlar");
+    private void buyArmor() {  System.out.println("Bir Zirh seciniz : ");
+        int selectArmorID =scan.nextInt();
+        while (selectArmorID <1 || selectArmorID >Armor.armors().length){
+            System.out.println("Gecersiz deger , tekarr giriniz : ");
+            selectArmorID =scan.nextInt();
+    }Armor selectedArmor=Armor.getArmorObjById(selectArmorID);
+        if (selectedArmor!=null){
+            if (selectedArmor.getPrice()>this.getPlayer().getMoney()){
+                System.out.println(" Yeterli bakiyeniz yoktur");
+            }else {
+                System.out.println(selectedArmor.getName()+" Zirhini satin aldiniz");
+                int balance=this.getPlayer().getMoney()-selectedArmor.getPrice();
+                this.getPlayer().getInventory().setArmor(selectedArmor);
+                System.out.println("Kalan bakiye : "+this.getPlayer().getMoney());
+            }
+        }
     }
-public void buyweapon(){
+
+
+    public void buyweapon(){
     System.out.println("Bir silah seciniz : ");
     int selectWeaponID =scan.nextInt();
-    while (selectWeaponID<1 || selectWeaponID>Weapon.weapons().length){
+    while (selectWeaponID<0 || selectWeaponID>Weapon.weapons().length){
         System.out.println("Gecersiz deger , tekarr giriniz : ");
         selectWeaponID=scan.nextInt();
     }
+    if (selectWeaponID!=0){
+    if (selectWeaponID!=0){
     Weapon selectedWeapon=Weapon.getWeaonObjById(selectWeaponID);
     if (selectedWeapon!=null) {
         if (selectedWeapon.getPrice()>this.getPlayer().getMoney()){
@@ -52,8 +76,8 @@ public void buyweapon(){
             System.out.println("Önceki silahiniz : "+this.getPlayer().getInventory().getWeapon().getName());
             this.getPlayer().getInventory().setWeapon(selectedWeapon);
             System.out.println("Yeni Silahiniz : "+this.getPlayer().getInventory().getWeapon().getName());
-        }
-    }
+        }}
+    }}
 }
     public void printWeapon(){
         System.out.println("-------Silahlar-------");
@@ -64,7 +88,15 @@ public void buyweapon(){
                     w.getDamage()+"> ");
 
         }
+        System.out.println("0 - Cikis yap");
 
+        }
+    public void printArmor() {
 
-    }
-}
+        System.out.println("-------Zirhlar-------");
+        System.out.println();
+        for ( Armor a:Armor.armors()) {
+            System.out.println(a.getId()+"- "+a.getName()+" < Para : "+a.getPrice()+" Zirh : "+a.getBlock()+" >");
+
+    } System.out.println("0 - Cikis yap");
+}}
