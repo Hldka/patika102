@@ -6,7 +6,17 @@ public class Player {
 
     private  int damage;
     private  int health;
+    private int orjinalHealth;
     private  int money;
+
+    public int getOrjinalHealth() {
+        return orjinalHealth;
+    }
+
+    public void setOrjinalHealth(int orjinalHealth) {
+        this.orjinalHealth = orjinalHealth;
+    }
+
     private Inventory inventory;
 
     public Inventory getInventory() {
@@ -45,7 +55,7 @@ public class Player {
     }
     public void selectChar(){
         GameChar[] charList={new Samurai(),new Archer(),new Knight()};
-
+        System.out.println("KARAKTERLER");
         System.out.println("************************************************************");
         for (GameChar gameChar:charList) {System.out.println("ID : "+gameChar.getId()+"\tKarakter: "+gameChar.getName()+
                 "\tHasar :"+gameChar.getDamage()
@@ -55,6 +65,7 @@ public class Player {
         }
         System.out.println("*****************************");
         System.out.println("Lütfen bir karakter giriniz !");
+        System.out.println("*****************************");
         int selectChar=scan.nextInt();
         switch (selectChar){
             case 1:initPlayer(new Samurai());
@@ -75,6 +86,7 @@ public class Player {
 public void initPlayer(GameChar gameChar){
         this.setDamage(gameChar.getDamage());
         this.setHealth(gameChar.getHealth());
+        this.setOrjinalHealth(gameChar.getHealth());
         this.setMoney(gameChar.getMoney());
         this.setCharName(gameChar.getName());
       this.setId(gameChar.getId());

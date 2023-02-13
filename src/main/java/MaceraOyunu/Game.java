@@ -10,7 +10,9 @@ public class Game {
         //String playerName=input.nextLine();
         Player player=new Player("Ayse");
         System.out.println("Sayin "+player.getName()+"  Bu karanlik ve sisili adaya hos geldiniz.... burada yasanlarin hepsi gercek  !");
+        System.out.println("*****************************");
         System.out.println("Lütfen oyuna baslamak icin bir karakter seciniz ");
+        System.out.println("*****************************");
         player.selectChar();
         Location location=null;
 while (true){
