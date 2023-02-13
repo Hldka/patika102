@@ -19,7 +19,10 @@ while (true){
     System.out.println("######################## Bölgeler ############################");
     System.out.println();
     System.out.println("1 - Güvenli Ev--> Burasi sizin icin güvenli bir ev Düsman yoktur !");
-    System.out.println("2 -  Magaza --> Silah veya zirh satinalabilirsiniz ");
+    System.out.println("2 -  Esya Dükkani --> Silah veya zirh satinalabilirsiniz ");
+    System.out.println("3 -  Magara --> Ödül<Yemek> ,Dikkatli ol karsina Zombi cikabilir  ");
+    System.out.println("4 -  Orman --> Ödül<Odun> ,Dikkatli ol Vampir cikabilir  ");
+    System.out.println("5 -  Nehir --> Ödül <Su> ,Dikkatli ol Ayi cikabilir  ");
     System.out.println("0 -Cikis Yap --> Oyunu sonlandir  ");
     int selectLoc=input.nextInt();
     switch (selectLoc){
@@ -29,9 +32,15 @@ while (true){
             break;
         case  2:location=new ToolStore(player);
             break;
+        case 3:location=new Cave(player);
+            break;
+        case 4:location=new Forest(player);
+            break;
+        case 5:location=new River(player);
+             break;
         default:location=new SafeHouse(player);
     }if (location==null){
-        System.out.println(" Bu sisli ve karanlik adaadn hemen vazgectin ");
+        System.out.println(" Bu sisli ve karanlik ada'dan hemen vazgectin ");
         break;}
     if (!location.onLocation()){
         System.out.println("GAME OVER");
