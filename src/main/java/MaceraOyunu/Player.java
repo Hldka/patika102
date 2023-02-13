@@ -17,7 +17,7 @@ public class Player {
                         "silahiniz : "+this.getInventory().getWeapon().getName()+
                                 ", Zirh : "+this.getInventory().getArmor().getName()+
                                 ", Bloklama : "+this.getInventory().getArmor().getBlock()+
-                                ", Hasariniz : "+this.getDamage()+
+                                ", Hasariniz : "+this.getTotalDamage()+
                                  " ,Saglik : "+this.getHealth()+
                              " ,Para : "+this.getMoney());
     }
@@ -79,10 +79,12 @@ public void initPlayer(GameChar gameChar){
         this.setCharName(gameChar.getName());
       this.setId(gameChar.getId());
 }
-
+public int getTotalDamage(){
+        return damage+this.getInventory().getWeapon().getDamage();
+}
 
     public int getDamage() {
-        return damage+this.getInventory().getWeapon().getDamage();
+        return damage;
     }
 
     public void setDamage(int damage) {
@@ -120,4 +122,6 @@ public void initPlayer(GameChar gameChar){
     public void setCharName(String charName) {
         this.charName = charName;
     }
+
+
 }
