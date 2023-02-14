@@ -66,7 +66,9 @@ public int randomObstacleNumber(){
             this.getObstacle().setHealth(this.getObstacle().getOrjinalHealth());
             playerStats();
             obstacleStats( i);
+
             while (this.getPlayer().getHealth()>0&& this.getObstacle().getHealth()>0){
+
                 System.out.println("<V>ur veya <K>ac : ");
                 String selectCombat=scan.nextLine().toUpperCase();
                 if (selectCombat.equals("V")){
@@ -93,6 +95,7 @@ afterHit();
         
         }
         return  true;}
+
 
     private void afterHit() {
         System.out.println("Caniniz : "+this.getPlayer().getHealth());
