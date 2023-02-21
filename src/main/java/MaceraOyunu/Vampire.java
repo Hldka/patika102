@@ -2,6 +2,6 @@ package MaceraOyunu;
 
 public class Vampire extends Obstacle{
     public Vampire() {
-        super(1, 4, 14, "Vampire",7);
+        super(2, 4, 14,"Vampire", 7);
     }
 }

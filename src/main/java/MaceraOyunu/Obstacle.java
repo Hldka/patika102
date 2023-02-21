@@ -1,6 +1,7 @@
 package MaceraOyunu;
 
 public class Obstacle {
+    private String name;
     private  int id;
     private int damage;
     private  int health;
@@ -31,7 +32,7 @@ public class Obstacle {
         this.name = name;
     }
 
-    private String name;
+
 
     public Obstacle(int id, int damage, int health, String name,int award) {
         this.id = id;
