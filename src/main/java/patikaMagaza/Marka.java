@@ -1,4 +1,4 @@
 package patikaMagaza;
 
-public class laptop {
+public class Marka {
 }
